@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GrabCutSamples", "GrabCutSa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "meanshift", "meanshift\meanshift.vcxproj", "{D216E787-5975-480F-B66C-C9E968E87BB3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graph Cut", "Graph Cut\Graph Cut.vcxproj", "{4CF5BAB0-2B96-49D6-9CD3-9B1EFA29054D}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cvAdaptiveThresholdExample", "cvAdaptiveThresholdExample\cvAdaptiveThresholdExample.vcxproj", "{279B027E-C78C-449B-BE23-71BEED226AAD}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "edgelink", "cvsnakeimageExample\cvsnakeimageExample.vcxproj", "{B3D5E443-3B0F-45EE-952E-C84583308F25}"
@@ -36,6 +34,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Contours", "Contours\Contours.vcxproj", "{C04B4370-1D2F-4367-AB87-7BD1A3309545}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenCV_angel_ver", "OpenCV_angel_ver\OpenCV_angel_ver.vcxproj", "{81EF6E1D-4DF8-4E5C-8718-D229B698A592}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Connected_Component_Analysis", "Connected_Component_Analysis\Connected_Component_Analysis.vcxproj", "{C8C44953-2B2C-49FE-A521-74A253B61E82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,15 +65,6 @@ Global
 		{D216E787-5975-480F-B66C-C9E968E87BB3}.Release|Win32.Build.0 = Release|Win32
 		{D216E787-5975-480F-B66C-C9E968E87BB3}.SingleImage|Win32.ActiveCfg = Release|Win32
 		{D216E787-5975-480F-B66C-C9E968E87BB3}.SingleImage|Win32.Build.0 = Release|Win32
-		{4CF5BAB0-2B96-49D6-9CD3-9B1EFA29054D}.CD_ROM|Win32.ActiveCfg = Release|Win32
-		{4CF5BAB0-2B96-49D6-9CD3-9B1EFA29054D}.CD_ROM|Win32.Build.0 = Release|Win32
-		{4CF5BAB0-2B96-49D6-9CD3-9B1EFA29054D}.Debug|Win32.ActiveCfg = Debug|Win32
-		{4CF5BAB0-2B96-49D6-9CD3-9B1EFA29054D}.DVD-5|Win32.ActiveCfg = Debug|Win32
-		{4CF5BAB0-2B96-49D6-9CD3-9B1EFA29054D}.DVD-5|Win32.Build.0 = Debug|Win32
-		{4CF5BAB0-2B96-49D6-9CD3-9B1EFA29054D}.Release|Win32.ActiveCfg = Release|Win32
-		{4CF5BAB0-2B96-49D6-9CD3-9B1EFA29054D}.Release|Win32.Build.0 = Release|Win32
-		{4CF5BAB0-2B96-49D6-9CD3-9B1EFA29054D}.SingleImage|Win32.ActiveCfg = Release|Win32
-		{4CF5BAB0-2B96-49D6-9CD3-9B1EFA29054D}.SingleImage|Win32.Build.0 = Release|Win32
 		{279B027E-C78C-449B-BE23-71BEED226AAD}.CD_ROM|Win32.ActiveCfg = Release|Win32
 		{279B027E-C78C-449B-BE23-71BEED226AAD}.CD_ROM|Win32.Build.0 = Release|Win32
 		{279B027E-C78C-449B-BE23-71BEED226AAD}.Debug|Win32.ActiveCfg = Debug|Win32
@@ -211,6 +202,16 @@ Global
 		{81EF6E1D-4DF8-4E5C-8718-D229B698A592}.Release|Win32.Build.0 = Release|Win32
 		{81EF6E1D-4DF8-4E5C-8718-D229B698A592}.SingleImage|Win32.ActiveCfg = Release|Win32
 		{81EF6E1D-4DF8-4E5C-8718-D229B698A592}.SingleImage|Win32.Build.0 = Release|Win32
+		{C8C44953-2B2C-49FE-A521-74A253B61E82}.CD_ROM|Win32.ActiveCfg = Release|Win32
+		{C8C44953-2B2C-49FE-A521-74A253B61E82}.CD_ROM|Win32.Build.0 = Release|Win32
+		{C8C44953-2B2C-49FE-A521-74A253B61E82}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C8C44953-2B2C-49FE-A521-74A253B61E82}.Debug|Win32.Build.0 = Debug|Win32
+		{C8C44953-2B2C-49FE-A521-74A253B61E82}.DVD-5|Win32.ActiveCfg = Debug|Win32
+		{C8C44953-2B2C-49FE-A521-74A253B61E82}.DVD-5|Win32.Build.0 = Debug|Win32
+		{C8C44953-2B2C-49FE-A521-74A253B61E82}.Release|Win32.ActiveCfg = Release|Win32
+		{C8C44953-2B2C-49FE-A521-74A253B61E82}.Release|Win32.Build.0 = Release|Win32
+		{C8C44953-2B2C-49FE-A521-74A253B61E82}.SingleImage|Win32.ActiveCfg = Release|Win32
+		{C8C44953-2B2C-49FE-A521-74A253B61E82}.SingleImage|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
