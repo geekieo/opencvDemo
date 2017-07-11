@@ -23,7 +23,7 @@
 #include "highgui.h"
 #endif
 
-int slider_pos = 70;
+int slider_pos = 110;
 
 // Load the source image. HighGUI use.
 IplImage *image02 = 0, *image03 = 0, *image04 = 0;
@@ -32,7 +32,7 @@ void process_image(int h);
 
 int main(int argc, char** argv)
 {
-	const char* filename = argc == 2 ? argv[1] : (char*)"stuff.jpg";
+	const char* filename = argc == 2 ? argv[1] : (char*)"4.bmp";
 
 	// load image and force it to be grayscale
 	if ((image03 = cvLoadImage(filename, 0)) == 0)

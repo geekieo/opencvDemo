@@ -296,7 +296,7 @@ int main(int argc, char** argv)
 	// 		return 1;
 	// 	}
 	//     string filename = argv[1];
-	string filename = "19.tiff";
+	string filename = "test_grabcut.jpg";
 	if (filename.empty())
 	{
 		cout << "\nDurn, couldn't read in " << filename << endl;
