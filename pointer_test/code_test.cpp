@@ -60,8 +60,36 @@ void pointTest(){
 	printf("p2 = %d\n", p);
 }
 
+// "try" test class
+class A{
+public:
+	A(): a(0){
+		std::cout << "A 默认构造函数" << std::endl;
+	}
+	A(const A& rsh){
+		std::cout << "A 复制构造函数" << std::endl;
+	}
+	~A(){
+		std::cout << "A 析构函数" << std::endl;
+	}
+private:
+	int a;
+};
+
+int tryTest(){
+	try{
+		A a;
+		throw a;
+	}
+	catch (A a){
+		;
+	}
+	return 0;
+}
+
+
 int _tmain(int argc, _TCHAR* argv[])
 {
-	sortTest();
+	tryTest();
 }
 
