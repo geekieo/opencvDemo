@@ -60,7 +60,7 @@ void pointTest(){
 	printf("p2 = %d\n", p);
 }
 
-// "try" test class
+// class for "tryTest"
 class A{
 public:
 	A(): a(0){
@@ -87,9 +87,30 @@ int tryTest(){
 	return 0;
 }
 
+//class for "iteratorTest"
+class _iterator{
+private:
+	char *p;
+public:
+	_iterator(char *str) :p(str){}
+	char *&operator++(){
+		p += 1;
+		return p;
+	}
+};
+
+int iteratorTest(){
+	char *p = "This is C++ program";
+	_iterator it(p);//it 为 p 的迭代器
+	std::cout << "++之前：" << p << std::endl;// ++之前：This is C++ program
+	char *p1 = ++it;//把地址向后加一个 char 型长度，此处为++it，不是++p
+	std::cout << "++之后：" << p1 << std::endl;//"++之后：his is C++ program
+	return 0;
+}
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	tryTest();
+	iteratorTest();
 }
 
