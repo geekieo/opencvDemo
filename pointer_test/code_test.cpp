@@ -7,6 +7,8 @@
 #include <algorithm>	//sortTest
 #include <vector>		//sortTest
 
+using namespace std;
+
 bool myfunction(int i, int j) { return (i<j); }
 
 struct SortTestClass {
@@ -72,8 +74,28 @@ public:
 	~A(){
 		std::cout << "A 析构函数" << std::endl;
 	}
+	void f(){
+		std::cout << "This is A's f() function" << std::endl;
+	}
+	virtual void virtual_f(){
+		std::cout << "This is A's virtual_f() function" << std::endl;
+	}
 private:
 	int a;
+};
+
+class B :public A{
+public:
+	B(){
+		virtual_f();
+	}
+	~B();
+
+	virtual void virtual_f(){
+		std::cout << "This is B's virtual_f() function" << std::endl;
+	}
+private:
+
 };
 
 int tryTest(){
@@ -92,7 +114,7 @@ class _iterator{
 private:
 	char *p;
 public:
-	_iterator(char *str) :p(str){}
+	_iterator(char *str) :p(str){} //初始化私有变量 p 赋值
 	char *&operator++(){
 		p += 1;
 		return p;
@@ -108,9 +130,52 @@ int iteratorTest(){
 	return 0;
 }
 
+//int* wrong_f(std::vector<int> v) {
+//	int a[10000000];		// a[] 所有元素保存在栈内存上，a是个符号地址，没有存储空间
+//	for (int i = 0; i < v.size(); ++i) { //warning C4018: “<”: 有符号/无符号不匹配
+//		a[i] = v[i];
+//	}
+//	return a;	//warning C4172: 返回局部变量或临时变量的地址
+//				//即警告返回了指向栈内存的指针，返回后栈内存都会被自动回收
+//				//修改方法：将 int a[10000000]转为 static，存入常量区
+//}
+
+int* wrong_f(std::vector<int> v) {
+	static int a[10000000];		//修改内容：添加 static
+	for (size_t i = 0; i < v.size(); ++i) { //修改内容：int -> size_t
+		a[i] = v[i];
+	}
+	return a;	
+}
+
+int pClassTest(){
+	// Test1
+	A *p = NULL;
+	p->f(); //编译成功，直接调用A类内函数f(),因为f并不涉及类内变量，故未实例化也没报错
+	//A *p2=NULL; p2->virtual_f();//编译出错，指向不明
+
+	// Test2
+	std::cout << sizeof(int) << std::endl; // int 为4个字节
+	int *pa = new int[10];
+	std::cout << pa << "; " << pa + 1 << std::endl; // +1 指针右移4个位置，一个位置1字节
+	//delete (pa+1); //指针不存在，编译出错
+
+	// Test3
+	A ca; //会调用默认构造函数,return会调析构函数
+	//B b; //编译出错，B构造函数中的 virtual_f() 指代不明
+	
+	//int shuzu[7] = { 1, 2, 3, 4, 5, 6, 7 };
+	//std::vector<int> v(shuzu, shuzu + 7);
+	std::vector<int> v = { 1, 2, 3, 4, 5, 6, 7 }; //C++11标准
+	int* arr_wf = wrong_f(v);
+	cout << arr_wf[0] << endl;
+
+	return 0;
+}
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	iteratorTest();
+	pClassTest();
 }
 
