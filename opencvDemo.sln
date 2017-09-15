@@ -41,7 +41,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LBP计算", "LBP计算\LBP�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "graham_algorithm", "graham_algorithm\graham_algorithm.vcxproj", "{BFD78833-4BFA-4149-A5C7-355BFC5920AF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "code_test", "pointer_test\pointer_test.vcxproj", "{49F14CB4-1D5B-45AF-BE9F-90F724B7FF91}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "code_test", "code_test\code_test.vcxproj", "{49F14CB4-1D5B-45AF-BE9F-90F724B7FF91}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "inverted_index", "inverted_index\inverted_index.vcxproj", "{0A3BB81E-6128-4347-A32A-9AE7CF25A4BB}"
 EndProject

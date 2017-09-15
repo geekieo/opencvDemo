@@ -174,8 +174,12 @@ int pClassTest(){
 }
 
 
+#include "link_list.h"
 int _tmain(int argc, _TCHAR* argv[])
 {
-	pClassTest();
+	int a = 1, b = 2;
+	a=add(a, b);
+	cout << a;
+	Node n;
 }
 
