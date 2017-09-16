@@ -177,9 +177,9 @@ int pClassTest(){
 #include "link_list.h"
 int _tmain(int argc, _TCHAR* argv[])
 {
-	int a = 1, b = 2;
-	a=add(a, b);
-	cout << a;
-	Node n;
+	pNode pHead = NULL;
+	createList(pHead);
+	int s = sizeof(pHead);
+	cout << pHead->data<<endl;
 }
 
