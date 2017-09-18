@@ -179,7 +179,8 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	pNode pHead = NULL;
 	createList(pHead);
-	int s = sizeof(pHead);
-	cout << pHead->data<<endl;
+	//int s = sizeof(pHead);
+	//cout << pHead->data<<endl;
 }
 
+  

@@ -2,7 +2,7 @@
 #include "link_list.h"
 
 #include <iostream>
-#include <stdlib.h>
+#include <stdio.h>
 using namespace std;
 
 int iCount; //节点个数
@@ -15,13 +15,24 @@ void createList(pNode pHead){
 	pNode pEnd, pNew;	//pEnd指向原节点，pNew指向新节点
 	iCount = 0;	//初始化链表长度，即节点数=0
 	pEnd = pNew = new(Node);
-	int inData;
-	cin >> inData;
-	while (inData!= 0){
-		iCount += 1;
+	
+	int i = 0;	//存储计数
+	int num[20];	//存储数组
+	char c;
+	while (c = getchar(), c != '\n'){
+		if (c >= '0' && c <= '9'){//数字定义域
+			ungetc(c, stdin);//把c送回输入缓冲区
+			cin >> num[i++];//在缓冲区使用cin读取这个数
+		}
+			
+	}
+	for (int j = 0; j<i; j++)
+	{
+		cout << "a[" << j << "]:" << num[j] << endl;
 	}
 
-	pHead = pNew;
+	
+
 }
 
 void print(pNode list){
