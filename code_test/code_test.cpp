@@ -173,14 +173,29 @@ int pClassTest(){
 	return 0;
 }
 
+void inputToArrayTest(){
+	//输入一行以空格为分隔的数字，存入数组，回车为结束符 
+	int i = 0;	//存储计数
+	int num[20];	//存储数组
+	char c;
+	while (c = getchar(), c != '\n'){
+		if (c >= '0' && c <= '9'){//数字定义域
+			ungetc(c, stdin);//把c送回输入缓冲区
+			cin >> num[i++];//在缓冲区使用cin读取这个数
+		}
+	}
+	for (int j = 0; j<i; j++)
+	{
+		cout << "a[" << j << "]:" << num[j] << endl;
+	}
+}
 
 #include "link_list.h"
 int _tmain(int argc, _TCHAR* argv[])
 {
-	pNode pHead = NULL;
-	createList(pHead);
-	//int s = sizeof(pHead);
-	//cout << pHead->data<<endl;
+	pNode list = new(Node);
+	createList(list);
+	print(list);
 }
 
   
