@@ -25,21 +25,43 @@ int createList(pNode pHead){
 		if (c >= '0' && c <= '9'){//数字定义域
 			pNew = new(Node);
 			ungetc(c, stdin);//把c送回输入缓冲区
-			cin >> pNew->data;//在缓冲区使用cin读取这个数
+			cin >> pNew->value;//在缓冲区使用cin读取这个数
 			pEnd->next = pNew;//接入链表尾部
 			pEnd = pNew;//pEnd 指向 pNew
 			i++;
 		}
 	}
 	return i;
-
 }
 
+/*
+打印链表
+*/
 void print(pNode pHead){
 	pNode node = pHead;
-	//迭代打印
+	//迭代打印节点数据
 	while (node->next != NULL){
 		node = node->next;
-		cout << node->data << endl;
+		cout << node->value << endl;
 	}
+}
+
+/*
+两个顺序链表合并，不含重复元素
+例如：对于 p：1->1->2->3 和 q:1->2->2->3 ，输出为 1->2->3
+返回合并后的链表头节点
+*/
+pNode merge(pNode p, pNode q){
+	pNode mergedListHead;
+
+	return mergedListHead;
+}
+
+/*
+hash 查重
+hash公式：key = value
+持久化节点数据，遇到重复返回 false
+*/
+bool uniqueHash(int value){
+	
 }
