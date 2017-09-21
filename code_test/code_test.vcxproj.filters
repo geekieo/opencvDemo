@@ -24,7 +24,7 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="link_list.h">
+    <ClInclude Include="linked_list.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,7 +35,7 @@
     <ClCompile Include="code_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="link_list.cpp">
+    <ClCompile Include="linked_list.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

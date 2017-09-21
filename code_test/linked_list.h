@@ -10,3 +10,4 @@ typedef struct _node{
 int createList(pNode pHead);
 void print(pNode pHead);
 pNode merge(pNode p, pNode q);
+pNode deleteDuplicates(pNode pHead);

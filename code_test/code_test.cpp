@@ -190,7 +190,7 @@ void inputToArrayTest(){
 	}
 }
 
-#include "link_list.h"
+#include "linked_list.h"
 int _tmain(int argc, _TCHAR* argv[])
 {
 	pNode list1 = new Node();
@@ -201,6 +201,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	print(list2);
 	pNode mList = merge(list1, list2);
 	print(mList);
+	print(list1);
+	print(list2);
+	pNode mListSet = deleteDuplicates(mList);
+	print(mListSet);
+	print(mList);
+
 }
 
   

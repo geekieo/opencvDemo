@@ -6,13 +6,15 @@
 using namespace std;
 
 /*
-创建/延长链表
-以 pHead 为尾节点，根据键入数字，新建/延长链表 
-返回新增节点个数
-如果是新建链表，pHead->data 为空
+name:创建/延长链表
+param: pHead 新增节点的头结点
+return:新增节点个数
+method:
+以 pHead 为尾节点，根据键入数字，新建/延长链表
+延长结束后，pHead 后移一位，为新增节点的头节点
 */
 int createList(pNode pHead){
-	pNode pEnd, pNew;	//pEnd指向头节点，pNew指向新节点
+	pNode pEnd, pNew;	//pEnd指向尾节点，pNew指向新节点
 	pEnd = pHead;
 	int iCount = 0;	//存储计数
 	char c;
@@ -26,6 +28,9 @@ int createList(pNode pHead){
 			iCount++;
 		}
 	}
+	//pHead 指针地址不能变，后移一位（赋值）使其为有值头节点
+	pHead->value = pHead->next->value;
+	pHead->next = pHead->next->next;
 	return iCount;
 }
 
@@ -36,9 +41,10 @@ void print(pNode pHead){
 	pNode node = pHead;
 	//迭代打印节点数据
 	while (node != NULL){
-		cout << node->value << endl;
+		cout << node->value<<" ";
 		node = node->next;
 	}
+	cout << endl;
 }
 
 /*
@@ -48,15 +54,16 @@ void print(pNode pHead){
 pNode merge(pNode p, pNode q){
 	pNode mHead, mNode;
 	mHead = mNode = new Node();
-	mHead->next = mNode;
 	while (p != NULL && q != NULL){
 		if (p->value <= q->value){
-			mNode = p;
-			p = mNode = mNode -> next;
+			mNode ->next = p;
+			mNode = mNode->next;
+			p = p->next;
 		}
 		else{
-			mNode = q;
+			mNode->next = q;
 			q = mNode = mNode->next;
+			q = q->next; 
 		}
 	}
 	// 续上未比较的节点
@@ -66,6 +73,9 @@ pNode merge(pNode p, pNode q){
 	else{
 		mNode->next = q;
 	}
+	//mHead 节点后移一位，使其为有值头节点
+	mHead->value = mHead->next->value;
+	mHead->next =  mHead->next->next;
 	return mHead;
 }
 
@@ -73,6 +83,16 @@ pNode merge(pNode p, pNode q){
 顺序表去重
 Given 1->2->2->3, return 1->2->3
 */
-void deleteDuplicates(pNode pHead){
-
+pNode deleteDuplicates(pNode pHead){
+	pNode sHead = pHead;
+	pNode sNode = pHead;
+	while(pHead->next != NULL){
+		pHead = pHead->next;
+		while (pHead->value == sNode->value)
+			pHead = pHead->next;
+		sNode->next = new Node();//不改变入参内存，开辟新内存，真拷贝
+		sNode = sNode->next;
+		sNode->value =	pHead ->value;
+	}
+	return sHead;
 }
