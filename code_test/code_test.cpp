@@ -193,9 +193,14 @@ void inputToArrayTest(){
 #include "link_list.h"
 int _tmain(int argc, _TCHAR* argv[])
 {
-	pNode list = new(Node);
-	createList(list);
-	print(list);
+	pNode list1 = new Node();
+	pNode list2 = new Node();
+	createList(list1);
+	print(list1);
+	createList(list2);
+	print(list2);
+	pNode mList = merge(list1, list2);
+	print(mList);
 }
 
   

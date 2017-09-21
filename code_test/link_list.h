@@ -6,10 +6,7 @@ typedef struct _node{
 	_node* next;	//链域，指向 Node 结构体实例的指针
 } Node,* pNode;
 
-typedef struct _linearHash{
-	int key;
-	bool hasValue = false;
-} linearHash;
 
 int createList(pNode pHead);
 void print(pNode pHead);
+pNode merge(pNode p, pNode q);
