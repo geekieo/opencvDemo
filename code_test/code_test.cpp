@@ -191,8 +191,8 @@ void inputToArrayTest(){
 }
 
 #include "linked_list.h"
-int _tmain(int argc, _TCHAR* argv[])
-{
+void linkedListTest(){
+	//≤‚ ‘ ‰»Î£∫1 2 3\n 2 3 4\n
 	pNode list1 = new Node();
 	pNode list2 = new Node();
 	createList(list1);
@@ -206,7 +206,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	pNode mListSet = deleteDuplicates(mList);
 	print(mListSet);
 	print(mList);
+}
 
+int _tmain(int argc, _TCHAR* argv[])
+{
+	linkedListTest();
 }
 
   
