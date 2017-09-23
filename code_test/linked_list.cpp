@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "link_list.h"
+ #include "stdafx.h"
+#include "linked_list.h"
 
 #include <iostream>
 #include <stdio.h>
@@ -28,9 +28,8 @@ int createList(pNode pHead){
 			iCount++;
 		}
 	}
-	//pHead 指针地址不能变，后移一位（赋值）使其为有值头节点
-	pHead->value = pHead->next->value;
-	pHead->next = pHead->next->next;
+	//pHead 指针地址不能变，后移一位（解指针,赋值，值拷贝）使其为有值头节点
+	*pHead = *pHead->next;// ->优先级高于*
 	return iCount;
 }
 
@@ -52,30 +51,42 @@ void print(pNode pHead){
 返回合并后的链表头节点
 */
 pNode merge(pNode p, pNode q){
-	pNode mHead, mNode;
-	mHead = mNode = new Node();
+	pNode mHead, mEnd;//合并后的链表头节点和尾节点
+	mHead = mEnd = new Node();
 	while (p != NULL && q != NULL){
+		pNode pTemp = new Node();
+		mEnd->next = pTemp;
 		if (p->value <= q->value){
-			mNode ->next = p;
-			mNode = mNode->next;
+			*pTemp = *p;//解指针，值拷贝
 			p = p->next;
 		}
 		else{
-			mNode->next = q;
-			q = mNode = mNode->next;
+			*pTemp = *q;
 			q = q->next; 
 		}
+		mEnd = mEnd->next;
 	}
-	// 续上未比较的节点
+	// 添加未比较的节点
 	if (p != NULL){
-		mNode->next = p;
+		while (p != NULL){
+			pNode pTemp = new Node();
+			mEnd->next = pTemp;
+			*pTemp = *p;
+			p = p->next;
+			mEnd = mEnd->next;
+		}
 	}
 	else{
-		mNode->next = q;
+		while (q != NULL){
+			pNode pTemp = new Node();
+			mEnd->next = pTemp;
+			*pTemp = *q;
+			q = q->next;
+			mEnd = mEnd->next;
+		}
 	}
 	//mHead 节点后移一位，使其为有值头节点
-	mHead->value = mHead->next->value;
-	mHead->next =  mHead->next->next;
+	*mHead = *(mHead->next);
 	return mHead;
 }
 
@@ -84,15 +95,16 @@ pNode merge(pNode p, pNode q){
 Given 1->2->2->3, return 1->2->3
 */
 pNode deleteDuplicates(pNode pHead){
-	pNode sHead = pHead;
-	pNode sNode = pHead;
-	while(pHead->next != NULL){
-		pHead = pHead->next;
-		while (pHead->value == sNode->value)
-			pHead = pHead->next;
-		sNode->next = new Node();//不改变入参内存，开辟新内存，真拷贝
-		sNode = sNode->next;
-		sNode->value =	pHead ->value;
+	pNode sHead, sEnd;//开辟去重后的链表头节点和尾节点
+	sHead = sEnd = new Node();
+	while(pHead != NULL){
+		while (pHead->value == sEnd->value)
+			pHead = pHead->next;//跳过重复节点，仅仅链接不重复节点
+		sEnd->next = new Node();//不改变入参内存，开辟新内存，真拷贝
+		sEnd = sEnd->next;
+		*sEnd = *pHead;
+		pHead = pHead->next;//函数内pHead为拷贝，变化不改变外部pHead
 	}
+	*sHead = *sHead->next;
 	return sHead;
 }
