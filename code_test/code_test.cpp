@@ -208,9 +208,55 @@ void linkedListTest(){
 	print(mList);
 }
 
+/*
+* @param nums: A list of integers
+* @return: A list of integers includes the index of the first number and the index of the last number
+*/
+#include <map>
+vector<int> subarraySum(vector<int> &nums) {
+	// write your code here
+	map<int, int> mymap;
+
+	mymap[0] = -1;
+	vector<int> result;
+	if (!nums.size()) return result;
+	if (nums[0] == 0)
+	{
+		result.push_back(0);
+		result.push_back(0);
+		return result;
+	}
+	mymap[nums[0]] = 0;
+	int i = 0;
+	for (i = 1; i < nums.size(); i++)
+	{
+		nums[i] += nums[i - 1];
+		if (mymap.find(nums[i]) == mymap.end())
+			mymap[nums[i]] = i;
+		else
+		{
+			result.push_back(mymap[nums[i]] + 1);
+			result.push_back(i);
+
+			return result;
+		}
+	}
+	return result;
+}
+
+void subarraySumTest(){
+	vector<int> inData = {-3, 1, 2, -3, 4};
+	vector<int> result = subarraySum(inData);
+	for each (int value in result)
+	{
+		cout << value<<endl;
+	}
+}
+
+
 int _tmain(int argc, _TCHAR* argv[])
 {
-	linkedListTest();
+	subarraySumTest();
 }
 
   
